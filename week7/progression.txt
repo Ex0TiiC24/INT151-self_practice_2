@@ -1,0 +1,3 @@
+In this week i have created a website which fetching data from a pokemon api to display it's name
+by using js to access the document and for each pokemon obj I have created the div and insert it's name into
+then append the div into the div with 'table' id to display it on the index.html

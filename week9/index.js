@@ -28,14 +28,7 @@ const pokemonElementTextColors = {
   fairy: 'text-pink-300'
 };
 
-
-const main = async() =>{
-    const data = await fetchallpokemon()
-    const table = document.getElementById('table')
-    const allpokemon = await Promise.all(
-        data.map(({url})=> fetcheachpokemon(url))
-    )
-
+const renderPokemon = (allpokemon,target) => {
     allpokemon.forEach(({id,types,sprites:{front_default},name}) => {
         const card = document.createElement('div')
         card.setAttribute('class','w-full h-47 bg-gray-900 rounded-lg p-3 flex flex-col items-center justify-center')
@@ -58,16 +51,18 @@ const main = async() =>{
         card.appendChild(img);
         card.appendChild(pokename);
         card.appendChild(poketypes);
-        table.appendChild(card)
+        target.appendChild(card)
     });
-    // data.forEach(ele => {
-    //     const card = document.createElement('div')
-    //     card.setAttribute('class','w-full h-40 bg-gray-900 rounded-lg p-3 flex flex-col items-center justify-center')
-    //     console.log(ele.name)
-    //     card.innerText = ele.name
-    //     table.appendChild(card)
+}
 
-    // });
+const main = async() =>{
+    const data = await fetchallpokemon()
+    const table = document.getElementById('table')
+    const allpokemon = await Promise.all(
+        data.map(({url})=> fetcheachpokemon(url))
+    )
+    renderPokemon(allpokemon,table)
+
 }
 
 main()

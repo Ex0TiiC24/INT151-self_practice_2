@@ -1,0 +1,5 @@
+continue from week 8 i've added a sprites for each pokemons and it's type
+by displaying the image i've to fetch another api which each pokemon has it's own
+this causes old way to not be working properly because it's foreach async which is not good 
+it will result in unordered of pokemon because it's take differnt times for each pokemon image to load
+so i used promise.all to map each data of a pokemon out 

@@ -1,10 +1,10 @@
 const fetchallpokemon = async () =>{
-    return await fetch('https://pokeapi.co/api/v2/pokemon?limit=300').then(res=>res.json()).then(data=>data.results.map(res=>res))
+    return await fetch('https://pokeapi.co/api/v2/pokemon?limit=30').then(res=>res.json()).then(data=>data.results.map(res=>res))
 }
 
 const fetcheachpokemon = async (url) =>{
     return await fetch(url).then(res=>res.json())
-    
+
 }
 
 const pokemonElementTextColors = {
